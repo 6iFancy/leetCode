@@ -1,281 +1,286 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeetCode</title>
-  </head>
-  <body>
-    <div class="card">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="card-inner">
-        <button class="btn" id="btn" type="button">
-          <strong>Go!</strong>
-          <div id="container-stars">
-            <div id="stars"></div>
-          </div>
-          <div id="glow">
-            <div class="circle-btn"></div>
-            <div class="circle-btn"></div>
-          </div>
-        </button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode</title>
+</head>
+
+<body>
+  <div class="card">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="card-inner">
+      <button class="btn" id="btn" type="button">
+        <strong>Go!</strong>
+        <div id="container-stars">
+          <div id="stars"></div>
+        </div>
+        <div id="glow">
+          <div class="circle-btn"></div>
+          <div class="circle-btn"></div>
+        </div>
+      </button>
     </div>
-    <script src="./1679.k-和数对的最大数目.js"></script>
-    <script>
-      function onClick() {
-        console.log(maxOperations([1, 8, 6, 2, 5, 4, 8, 3, 7],5));
-      }
-      document.getElementById("btn").addEventListener("click", onClick);
-    </script>
-  </body>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
+  </div>
+  <script src="./1004.最大连续-1-的个数-iii.js"></script>
+  <script>
+    // import { longestOnes } from './1004.最大连续-1-的个数-iii.js'
+    const arr = [1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1]
+    const k = 5
+    function onClick() {
+      longestOnes(arr, k)
     }
-    body {
-      width: 100%;
-      height: 100vh;
-      background-color: #212121;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
-  <style>
-    .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 13rem;
-      height: 3rem;
-      background-size: 300% 300%;
-      backdrop-filter: blur(1rem);
-      border-radius: 5rem;
-      transition: 0.5s;
-      animation: gradient_301 5s ease infinite;
-      border: double 4px transparent;
-      background-image: linear-gradient(#212121, #212121),
-        linear-gradient(
-          137.48deg,
-          #fff53b 10%,
-          #53feae 45%,
-          #51b2ea 67%,
-          #0062ff 87%
-        );
-      background-origin: border-box;
-      background-clip: content-box, border-box;
-      cursor: pointer;
-    }
+    document.getElementById("btn").addEventListener("click", onClick);
+  </script>
+</body>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-    #container-stars {
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      transition: 0.5s;
-      backdrop-filter: blur(1rem);
-      border-radius: 5rem;
-    }
+  body {
+    width: 100%;
+    height: 100vh;
+    background-color: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+<style>
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121),
+      linear-gradient(137.48deg,
+        #fff53b 10%,
+        #53feae 45%,
+        #51b2ea 67%,
+        #0062ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    cursor: pointer;
+  }
 
-    strong {
-      z-index: 2;
-      font-family: "Avalors Personal Use";
-      font-size: 12px;
-      letter-spacing: 5px;
-      color: #ffffff;
-      text-shadow: 0 0 4px white;
-    }
+  #container-stars {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+  }
 
-    #glow {
-      position: absolute;
-      display: flex;
-      width: 12rem;
-    }
+  strong {
+    z-index: 2;
+    font-family: "Avalors Personal Use";
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 4px white;
+  }
 
-    .circle-btn {
-      width: 100%;
-      height: 30px;
-      filter: blur(2rem);
-      animation: pulse_3011 4s infinite;
-      z-index: -1;
-    }
+  #glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+  }
 
-    .circle-btn:nth-of-type(1) {
-      background: rgba(254, 83, 186, 0.636);
-    }
+  .circle-btn {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
+  }
 
-    .circle-btn:nth-of-type(2) {
-      background: rgba(142, 81, 234, 0.704);
-    }
+  .circle-btn:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+  }
 
-    .btn:hover #container-stars {
-      z-index: 1;
-      background-color: #212121;
-    }
+  .circle-btn:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+  }
 
-    .btn:hover {
-      transform: scale(1.2);
-    }
+  .btn:hover #container-stars {
+    z-index: 1;
+    background-color: #212121;
+  }
 
-    .btn:active {
-      border: double 4px #fe53bb;
-      background-origin: border-box;
-      background-clip: content-box, border-box;
-      animation: none;
-    }
+  .btn:hover {
+    transform: scale(1.2);
+  }
 
-    .btn:active .circle-btn {
-      background: #fe53bb;
-    }
+  .btn:active {
+    border: double 4px #fe53bb;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+  }
 
-    #stars {
-      position: relative;
-      background: transparent;
-      width: 200rem;
-      height: 200rem;
-    }
+  .btn:active .circle-btn {
+    background: #fe53bb;
+  }
 
-    #stars::after {
-      content: "";
-      position: absolute;
-      top: -10rem;
-      left: -100rem;
-      width: 100%;
-      height: 100%;
-      animation: animStarRotate 90s linear infinite;
-    }
+  #stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+  }
 
-    #stars::after {
-      background-image: radial-gradient(#ffffff 1px, transparent 1%);
-      background-size: 50px 50px;
-    }
+  #stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+  }
 
-    #stars::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 170%;
-      height: 500%;
-      animation: animStar 60s linear infinite;
-    }
+  #stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+  }
 
-    #stars::before {
-      background-image: radial-gradient(#ffffff 1px, transparent 1%);
-      background-size: 50px 50px;
-      opacity: 0.5;
-    }
+  #stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+  }
 
-    @keyframes animStar {
-      from {
-        transform: translateY(0);
-      }
+  #stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
 
-      to {
-        transform: translateY(-135rem);
-      }
+  @keyframes animStar {
+    from {
+      transform: translateY(0);
     }
 
-    @keyframes animStarRotate {
-      from {
-        transform: rotate(360deg);
-      }
+    to {
+      transform: translateY(-135rem);
+    }
+  }
 
-      to {
-        transform: rotate(0);
-      }
+  @keyframes animStarRotate {
+    from {
+      transform: rotate(360deg);
     }
 
-    @keyframes gradient_301 {
-      0% {
-        background-position: 0% 50%;
-      }
+    to {
+      transform: rotate(0);
+    }
+  }
 
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+  @keyframes gradient_301 {
+    0% {
+      background-position: 0% 50%;
     }
 
-    @keyframes pulse_3011 {
-      0% {
-        transform: scale(0.75);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-      }
-
-      70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-      }
-
-      100% {
-        transform: scale(0.75);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-      }
-    }
-  </style>
-  <style>
-    .card {
-      width: 300px;
-      height: 200px;
-      transition: all 0.2s;
-      position: relative;
-      cursor: pointer;
+    50% {
+      background-position: 100% 50%;
     }
 
-    .card-inner {
-      width: inherit;
-      height: inherit;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes pulse_3011 {
+    0% {
+      transform: scale(0.75);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
     }
 
-    .card-inner:hover {
-      transform: scale(1.01);
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
     }
 
-    .circle {
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(#b0e633, #53ef7d);
-      border-radius: 50%;
-      position: absolute;
-      animation: move-up6 2s ease-in infinite alternate-reverse;
+    100% {
+      transform: scale(0.75);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
+  }
+</style>
+<style>
+  .card {
+    width: 300px;
+    height: 200px;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+  }
 
-    .circle:nth-child(1) {
-      top: -25px;
-      left: -25px;
-    }
+  .card-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .circle:nth-child(2) {
-      bottom: -25px;
-      right: -25px;
-      animation-name: move-down1;
-    }
+  .card-inner:hover {
+    transform: scale(1.01);
+  }
 
-    @keyframes move-up6 {
-      to {
-        transform: translateY(-10px);
-      }
-    }
+  .circle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#b0e633, #53ef7d);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+  }
 
-    @keyframes move-down1 {
-      to {
-        transform: translateY(10px);
-      }
+  .circle:nth-child(1) {
+    top: -25px;
+    left: -25px;
+  }
+
+  .circle:nth-child(2) {
+    bottom: -25px;
+    right: -25px;
+    animation-name: move-down1;
+  }
+
+  @keyframes move-up6 {
+    to {
+      transform: translateY(-10px);
     }
-  </style>
+  }
+
+  @keyframes move-down1 {
+    to {
+      transform: translateY(10px);
+    }
+  }
+</style>
+
 </html>
